@@ -11,6 +11,7 @@
 左括号 ( 必须在对应的右括号之前 )。
 * 可以被视为单个右括号 ) ，或单个左括号 ( ，或一个空字符串。
 一个空字符串也被视为有效字符串。
+@Note: 判断deque是否为空，要通过长度，不能通过is None
 '''
 
 from collections import deque
@@ -26,18 +27,17 @@ class Solution:
             if s[i] == '*':
                 star_deque.append(i)
             if s[i] == ')':
-                if left_brackets_deque is None and star_deque is None:
+                if len(left_brackets_deque) == 0 and len(star_deque) == 0:
                     return False
-                elif left_brackets_deque is not None:
+                elif len(left_brackets_deque) != 0:
                     left_brackets_deque.pop()
-                elif star_deque is not None:
+                elif len(star_deque) != 0:
                     star_deque.popleft()
-        
         if len(star_deque) < len(left_brackets_deque):
             return False
-        
-        while left_brackets_deque is not None:
-            while star_deque is not None and left_brackets_deque[0] < star_deque[0]:
+        while len(left_brackets_deque) != 0:
+            while len(star_deque) != 0 and left_brackets_deque[0] > star_deque[0]:
+                # 左侧多余的星号 排除掉
                 star_deque.popleft()
             if len(left_brackets_deque) > len(star_deque):
                 return False
@@ -46,4 +46,4 @@ class Solution:
         return True
                     
 solution = Solution()
-print(solution.valid_string_judge('**(())'))
+print(solution.valid_string_judge('**(()))'))
