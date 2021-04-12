@@ -27,6 +27,10 @@ class Sort:
                 if arr[j + 1] < arr[j]:
                     arr[j], arr[j + 1] = arr[j + 1], arr[j] # Python可以实现无中间变量交换数值
         return arr
+    
+    def quick_sort(self, arr, left=None, right=None):
+        
+
 
 
 if __name__ == '__main__':
