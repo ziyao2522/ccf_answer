@@ -10,6 +10,24 @@
 
 # here put the import lib
 
+
+def swap(arr, i, j):
+    arr[i], arr[j] = arr[j], arr[i]
+
+
+def partition(arr, left, right):
+    pivot = left
+    index = pivot + 1
+    i = index
+    while i <= right:
+        if arr[i] < arr[pivot]:
+            swap(arr, i, index)
+            index += 1
+        i += 1
+    swap(arr, i, index-1)
+    return index - 1
+
+
 class Sort:
     def insertion_sort(self, arr):
         for i in range(len(arr)):
