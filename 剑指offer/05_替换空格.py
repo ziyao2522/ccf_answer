@@ -31,8 +31,10 @@ class TestMyFunc(unittest.TestCase):
 
 if __name__ == '__main__':
 
-    # unittest.main()
+    # 单纯使用测试用例
+    unittest.main()
 
+    # 使用TestSuite控制用例执行顺序
     tests = [TestMyFunc('test_replace_space')]
     suite = unittest.TestSuite()
     suite.addTests(tests)
