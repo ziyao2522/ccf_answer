@@ -22,7 +22,7 @@ class Solution:
         new_length = original_length + blank_number * 2
         origin_index = original_length - 1
         result_index = new_length - 1
-        result_string = s + ' ' * 2 * blank_number
+        result_string = ''
         while origin_index >= 0:
             if s[origin_index] == ' ':
                 result_string[result_index] = '0'
