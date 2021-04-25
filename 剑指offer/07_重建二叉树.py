@@ -20,7 +20,7 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+    def buildTree(self, preorder: [int], inorder: [int]) -> TreeNode:
         def myBuildTree(preorder_left: int, preorder_right: int, inorder_left: int, inorder_right: int):
             '''
             @param: 均为节点在遍历中的索引
