@@ -13,7 +13,7 @@
 class Solution:
     def exist(self, board: [[str]], word: str) -> bool:
         def dfs(i, j, k):
-            if not 0 <= i < len(board) or not 0 <= i < len(board[0]) or board[i][j] != word[k]:
+            if not 0 <= i < len(board) or not 0 <= j < len(board[0]) or board[i][j] != word[k]:
                 return False
             if k == len(word) - 1:
                 return True
