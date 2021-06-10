@@ -35,6 +35,7 @@ class ListNodeHandle:
 
 class Solution:
     def merge_sorted_list(self, l1: ListNode, l2: ListNode) -> ListNode:
+        # dum作为cur的伪头节点
         cur = dum = ListNode()
         while l1 and l2:
             if l1.val < l2.val:
@@ -44,19 +45,6 @@ class Solution:
                 cur.next = l2
                 l2 = l2.next
             cur = cur.next
-            cur.next = l1 if l1 else l2
-            return dum.next
-
-
-solution = Solution()
-l1 = ListNode()
-ListNodeHandle().add(1)
-ListNodeHandle().add(3)
-ListNodeHandle().add(5)
-l2 = ListNode()
-ListNodeHandle().add(2)
-ListNodeHandle().add(4)
-ListNodeHandle().add(6)
-# l1.add(5)
-# ListNodeHandle().print_ListNode(l1)
-ListNodeHandle().print_ListNode(solution.merge_sorted_list(l1, l2))
+        # 一个ListNode结束之后，剩余节点连上去
+        cur.next = l1 if l1 else l2
+        return dum.next
